@@ -1,0 +1,250 @@
+#:kivy 1.11.1
+<MyScreenManager>:
+    id: scrnmngr
+    StartScreen:
+    Q1:
+    Q2:
+    Q3:
+    Q4:
+    result:
+    pick:
+    confirm:
+    final:
+    goodMovie:
+<StartScreen>:
+    name:'start'
+    FloatLayout:
+        Label:
+            text: 'Welcome to the movie recommeder'
+            pos_hint:{'x': .25,'y': .7}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 40
+        Label:
+            text: 'Would you like a recommendation or would you rather pick a movie and see if its for you?'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "Recommendation"
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.current = 'Q1'
+        Button:
+            text: "Pick a movie"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.current = 'pick'
+<Q1>:
+    name: 'Q1'
+    FloatLayout:
+        Label:
+            text: 'What kind of movie are you looking for?'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "Light-Hearted"
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(1)
+        Button:
+            text: "Action-Packed"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(2)
+<Q2>:
+    name: 'Q2'
+    FloatLayout:
+        Label:
+            text: 'Are you interested in a newer or older movie?'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "Released before 2010"
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(3)
+        Button:
+            text: "Released after 2010"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(4)
+<Q3>:
+    name:'Q3'
+    FloatLayout:
+        Label:
+            text: 'How long do you want to watch for?'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "Less than 2 hours"
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(5)
+        Button:
+            text: "2 hours or more"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(6)
+<Q4>:
+    name:'Q4'
+    FloatLayout:
+        Label:
+            text: 'Do you want an american (hollywood) movie or international?'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "American"
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(7)
+        Button:
+            text: "International"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.cont(8)
+<result>:
+    name:'result'
+    FloatLayout:
+        id: 'lyt'
+        Label:
+            text: 'Recommended movie:'
+            pos_hint:{'x': .25,'y': .7}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 40
+        Label:
+            text: root.recommendation
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 36
+        Image:
+            id: 'img'
+            source: "res/frozen2.jpg"
+            pos_hint:{'x': .35,'y': .07}
+            size_hint: (.3,.7)
+        Button:
+            text: 'Use recommender again'
+            pos_hint:{'x': .25,'y': .03}
+            size_hint: (.5,.07)
+            on_press: root.manager.switchToStart()
+<pick>:
+    name:'pick'
+    GridLayout:
+        cols: 6
+        col_force_height: 1
+        row_force_height: 1
+        Button:
+            background_normal: 'res/weddingCrash.jpg'
+            on_press: root.manager.pick(1)
+        Button:
+            background_normal: 'res/chungking.jpg'
+            on_press: root.manager.pick(2)
+        Button:
+            background_normal: 'res/saw.jpg'
+            on_press: root.manager.pick(3)
+        Button:
+            background_normal: 'res/jumanji2.jpg'
+            on_press: root.manager.pick(4)
+        Button:
+            background_normal: 'res/heraPheri.jpg'
+            on_press: root.manager.pick(5)
+        Button:
+            background_normal: 'res/nineteen17.jpg'
+            on_press: root.manager.pick(6)
+        Button:
+            background_normal: 'res/badboys.jpg'
+            on_press: root.manager.pick(7)
+        Button:
+            background_normal: 'res/frozen2.jpg'
+            on_press: root.manager.pick(8)
+        Button:
+            background_normal: 'res/titanic.jpg'
+            on_press: root.manager.pick(9)
+        Button:
+            background_normal: 'res/parasite.jpg'
+            on_press: root.manager.pick(10)
+        Button:
+            background_normal: 'res/theGrudge.jpg'
+            on_press: root.manager.pick(11)
+        Button:
+            background_normal: 'res/D_A_F.jpg'
+            on_press: root.manager.pick(12)
+        Button:
+            background_normal: 'res/twelveYrs.jpg'
+            on_press: root.manager.pick(13)
+        Button:
+            background_normal: 'res/kingsman.jpg'
+            on_press: root.manager.pick(14)
+        Button:
+            background_normal: 'res/L_W_R.jpg'
+            on_press: root.manager.pick(15)
+        Button:
+            background_normal: 'res/theHost.jpg'
+            on_press: root.manager.pick(16)
+        Button:
+            text: 'Go Back'
+            on_press: root.manager.switchToStart()
+<confirm>:
+    name: 'confirm'
+    FloatLayout:
+        Label:
+            text: 'Are you looking for a movie that is..'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Label:
+            text: root.attribute
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: "Yes!!"
+            pos_hint:{'x': .25,'y': .4}
+            size_hint: (.5,.1)
+            on_press: root.manager.conf(1)
+        Button:
+            text: "Not really :/"
+            pos_hint:{'x': .25,'y': .3}
+            size_hint: (.5,.1)
+            on_press: root.manager.conf(0)
+<final>:
+    name: 'final'
+    FloatLayout:
+        Label:
+            text: 'It seems this movie is not for you. Try another one..'
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: 'Use recommender again'
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.switchToStart()
+<goodMovie>:
+    name: 'goodMovie'
+    FloatLayout:
+        Label:
+            text: "Great! Then you'll love this movie! Enjoy!"
+            pos_hint:{'x': .25,'y': .6}
+            size_hint: .5,.3
+            halign: "justify"
+            font_size: 18
+        Button:
+            text: 'Use recommender again'
+            pos_hint:{'x': .25,'y': .5}
+            size_hint: (.5,.1)
+            on_press: root.manager.switchToStart()
